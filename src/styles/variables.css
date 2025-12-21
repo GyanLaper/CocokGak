@@ -1,0 +1,55 @@
+:root {
+    /* Modern Pastel / Low Saturation Palette */
+
+    /* Primary: Soft Dark Slate (Readable but not harsh black) */
+    --primary: #334155;
+    /* Slate-700 */
+    --primary-hover: #1e293b;
+    /* Slate-800 */
+
+    /* Secondary: Muted Cool Gray */
+    --secondary: #64748b;
+    /* Slate-500 */
+
+    /* Accent: Soft Pastel Blue/Indigo (Low Saturation) */
+    --accent: #a5b4fc;
+    /* Indigo-300 - Soft Pop */
+
+    /* Backgrounds: Clean Off-Whites */
+    --bg-main: #f8fafc;
+    /* Slate-50 (Very light cool gray) */
+    --bg-card: #ffffff;
+    /* White */
+    --bg-accent: #f1f5f9;
+    /* Slate-100 */
+
+    /* Text */
+    --text-main: #1e293b;
+    /* Slate-800 */
+    --text-muted: #64748b;
+    /* Slate-500 */
+    --text-inverse: #ffffff;
+
+    /* Borders & Shadows (Modern Clean Style) */
+    --border-width: 1px;
+    --border-color: #e2e8f0;
+    /* Slate-200 */
+    --border-style: solid;
+    --border-main: var(--border-width) var(--border-style) var(--border-color);
+    --border-ornate: 1px solid #cbd5e1;
+    /* Simplified from double border */
+
+    /* Modern Shadows (Soft & Diffused) */
+    --shadow-main: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* Font Families - Switch to Modern Sans */
+    --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
