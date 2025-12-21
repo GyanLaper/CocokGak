@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // API Key provided by user. 
 // In a production app, this should be in an environment variable and calls proxied through a backend.
-const API_KEY = "AIzaSyAEry7tq2fzZDLlqRor32mTe7uoDUbfx4I";
+const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
