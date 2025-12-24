@@ -28,22 +28,33 @@ export const generateOutfitReview = async (items, style) => {
         });
 
         const prompt = `
-      Anda adalah seorang fashion stylist dari "CocokGak!" yang sedang mereview outfit pengguna.
+      Anda adalah seorang kritikus fashion profesional dan "pedas" dari "CocokGak!".
       Konteks: Pengguna ingin bergaya "${style}".
       Pengguna telah mengunggah ${items.length} item pakaian.
       
-      Mohon berikan respons dalam Bahasa Indonesia yang santai tapi profesional:
-      1. Rating (1-5 Bintang) berdasarkan keserasian outfit.
-      2. Review (3-4 kalimat) yang jujur dan membangun tentang padu-padan warna dan style.
-      3. Tips (2-3 kalimat) konkret untuk membuat outfit ini lebih keren (misal: "Gulung lengan kemeja", "Ganti sepatu warna putih").
+      Tugas Anda:
+      1. Deteksi apakah gambar yang diunggah mengandung elemen pakaian/fashion.
+         - Jika TIDAK ADA pakaian (misal: gambar kursi, wajah saja, atau benda lain):
+           Kembalikan JSON dengan:
+           - rating: "-/5" (String)
+           - review: "Maaf, saya tidak melihat pakaian di sini. Apakah Anda yakin ini outfit?"
+           - tips: "-"
+
+      2. Jika ADA pakaian, berikan penilaian Kritis dan Jujur:
+         - Berikan **Rating** dalam skala **0 - 5** (Boleh desimal, contoh: 3.5, 4.2).
+         - **Personality**: Kritikus yang punya standar tinggi. Jangan ragu memberi nilai rendah jika memang tidak cocok.
+
+      3. Aturan Output (Logic):
+         - **Jika Rating > 4.5**: Bagian "tips" HANYA boleh berisi pujian/kekaguman. Jangan berikan saran perbaikan apapun.
+         - **Jika Rating <= 4.5**: Bagian "tips" HARUS berisi saran konkret dan actionable untuk memperbaiki outfit.
       
-      Kembalikan respons HANYA dalam format JSON valid seperti ini:
+      Format Output JSON (HANYA JSON):
       {
-        "rating": 4,
-        "review": "Paduan warna ini cukup aman...",
-        "tips": "Coba tambahkan jam tangan..."
+        "rating": 4.2, // atau "-/5" jika tidak ada pakaian
+        "review": "Jujur saja, warnanya agak bertabrakan...",
+        "tips": "Coba ganti..." // atau pujian jika rating > 4.5
       }
-      Jangan gunakan format markdown seperti \`\`\`json.
+      Jangan gunakan format markdown.
     `;
 
         const result = await model.generateContent([prompt, ...imageParts]);
