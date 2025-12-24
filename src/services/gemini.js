@@ -42,7 +42,7 @@ export const generateOutfitReview = async (items, style) => {
 
       2. Jika ADA pakaian, berikan penilaian Kritis dan Jujur:
          - Berikan **Rating** dalam skala **0 - 5** (Boleh desimal, contoh: 3.5, 4.2).
-         - **Personality**: Kritikus yang punya standar normal jika bagus maka bagus, jika kurang bagus maka jujur(tidak merendahkan condong kebagus walaupun biasa saja). tetap profesional jika memang tidak cocok, tidak over critical.
+         - **Personality**: kamu mempunyai standar normal jika bagus maka bagus, jika kurang bagus maka jujur(tidak merendahkan condong kebagus walaupun biasa saja). tetap profesional jika memang tidak cocok, tidak over critical.
 
       3. Aturan Output (Logic):
          - **Jika Rating > 4.5**: Bagian "tips" HANYA boleh berisi pujian/kekaguman. Jangan berikan saran perbaikan apapun.
