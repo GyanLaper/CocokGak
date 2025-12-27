@@ -4,8 +4,16 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 // In a production app, this should be in an environment variable and calls proxied through a backend.
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
+// DEBUG: Check if API Key is loaded
+if (!API_KEY) {
+    console.error("CRITICAL: VITE_GOOGLE_API_KEY is missing or empty!");
+} else {
+    // Show first 10 chars to verify it's the right one
+    console.log("DEBUG: API_KEY loaded:", API_KEY.substring(0, 10) + "...");
+}
+
 const genAI = new GoogleGenerativeAI(API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 /**
  * Generates an outfit review based on uploaded items and selected style.
